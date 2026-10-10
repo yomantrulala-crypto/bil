@@ -3,331 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button Bersuara</title>
+  <title>sayur denika</title>
 <html style="margin:0;padding:0;">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
-<script>
+<style>
 
-
-(function(){
-  var s=document.createElement('style');
-  s.textContent=':root{--bg:#000;--card:#ffffff;--text:#0f172a;--muted:#64748b;--accent:#297a2e;--accent-soft:rgba(41,122,46,.14);--accent2:#d97706;--accent2-soft:rgba(217,119,6,.14);--border:rgba(15,23,42,.08)}'
-  +'.reveal{opacity:0;transform:translateY(18px);animation:fu .6s ease forwards}.reveal:nth-child(2){animation-delay:.12s}@keyframes fu{to{opacity:1;transform:translateY(0)}}'
-  +'.ctrl-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:14px;font-weight:600;font-size:14px;cursor:pointer;transition:transform .15s ease,background .2s ease,border-color .2s ease;background:var(--card);color:var(--text);border:1px solid var(--border);font-family:inherit}'
-  +'.ctrl-btn:hover{transform:translateY(-2px);border-color:var(--accent)}'
-  +'.ctrl-btn:active{transform:translateY(0) scale(.97)}'
-  +'.ctrl-btn.active{background:var(--accent-soft);border-color:var(--accent)}'
-  +'.canvas-bg{background:radial-gradient(900px 500px at 50% 28%, #ffffff 0%, #f3f6ea 55%, #e6eeda 100%)}';
-  document.head.appendChild(s);
-})();
-</script>
-<div style="background-color:transparent;box-sizing:border-box;">
-<div style="font-family:'Fredoka',sans-serif;background:var(--bg);color:var(--text);">
-<div class="max-w-4xl mx-auto px-5 py-10">
-
-  <div class="reveal text-center mb-8">
-    <h1 class="text-4xl font-bold" style="line-height:1.15;letter-spacing:-.01em;">Kelinci <span style="background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Imut 3D</span></h1>
-    <p class="text-sm mt-3" style="color:var(--muted);">Tarik &amp; geser pada gambar untuk memutar ke kiri / kanan · gulir untuk memperbesar</p>
-  </div>
-
-  <div class="reveal canvas-bg" style="position:relative;width:100%;height:540px;border-radius:22px;overflow:hidden;border:1px solid var(--border);box-shadow:0 0 0 1px var(--accent-soft),0 18px 50px rgba(41,122,46,.12);margin-bottom:20px;">
-    <div id="canvas3d" style="width:100%;height:100%;"></div>
-    <div style="position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.78);backdrop-filter:blur(6px);border:1px solid var(--border);font-size:12px;color:var(--muted);font-weight:500;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
-      Tarik untuk memutar
-    </div>
-  </div>
-<script> 
-  function putarSuara() {
-  const audio = document.getElementById("suara");
-  audio.currentTime = 0;
-  audio.play();
-  }
-</script>
-  <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:14px;">
-  <audio id="suara" src="https://ia903109.us.archive.org/6/items/ambience_202606/xxxx.mp3" preload="auto"></audio>
-    <button id="btnLeft" class="ctrl-btn" onclick="putarSuara()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-      Putar Kiri
-    </button>
-    <button id="btnAuto" class="ctrl-btn" onclick="putarSuara()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
-      <span id="autoLabel">Auto Putar</span>
-    </button>
-    <button id="btnRight" class="ctrl-btn" onclick="putarSuara()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
-      Putar Kanan
-    </button>
-    <button id="btnReset" class="ctrl-btn" onclick="putarSuara()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
-      Reset
-    </button>
-  </div>
-
-  <p class="text-center text-xs" style="color:var(--muted);">@billie_handsome_pipel</p>
-
-</div>
-</div>
+body {
+     background: #000;
+     display: flex;
+       flex-direction: column;
+       justify-content: center;
+        align-items: center;
+}
+.card {
+       width: 300px;
+       height: 600px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-family: 'Fredoka';
+        
+        }
+.card img {
+        width: 300px;
+        border-radius: 5px;
+        }
+a {
+        color: #e28bff;
+        }
+</style>
+<div class="card">
+<img src="https://ia903109.us.archive.org/6/items/ambience_202606/IMG-20261010-WA0006.jpg">
+<span>ini adalah sayur capcai buatan si denika berliana, kuah no daging, gimana, apakah kamu tergiur?.</span>
+<span>jika kamu tergiur silahkan hubungi denika<br> &nbsp; <br>
+<a href="https://www.instagram.com/denyberl_?obrf=cjJlc292Z3RrNWJn"><i class="bi bi-instagram" style="font-size: 18px; color: #E1306C;"></i>  instagram denika</a></span>
 </div>
 
-<script>
-(function init(n){
-  if(typeof THREE==='undefined'||typeof THREE.OrbitControls==='undefined'){
-    if(n<60){setTimeout(function(){init(n+1)},200);}
-    return;
-  }
-  try{
-    var container=document.getElementById('canvas3d');
-    if(!container) return;
-    var W=container.clientWidth||600, H=container.clientHeight||540;
-
-    var renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-    renderer.setSize(W,H);
-    renderer.shadowMap.enabled=true;
-    renderer.shadowMap.type=THREE.PCFSoftShadowMap;
-    renderer.outputEncoding=THREE.sRGBEncoding;
-    renderer.toneMapping=THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure=1.1;
-    container.appendChild(renderer.domElement);
-
-    var scene=new THREE.Scene();
-    var camera=new THREE.PerspectiveCamera(40,W/H,0.1,100);
-    camera.position.set(0,2.3,7.2);
-
-    var controls=new THREE.OrbitControls(camera,renderer.domElement);
-    controls.target.set(0,1.7,0);
-    controls.enableDamping=true;
-    controls.dampingFactor=0.08;
-    controls.enablePan=false;
-    controls.minDistance=3.5;
-    controls.maxDistance=11;
-    controls.minPolarAngle=0.25;
-    controls.maxPolarAngle=Math.PI/2+0.15;
-    controls.update();
-
-    var hemi=new THREE.HemisphereLight(0x000,0xd8cfc0,0.7);
-    scene.add(hemi);
-    var dir=new THREE.DirectionalLight(0x000,1.15);
-    dir.position.set(3.5,6,4);
-    dir.castShadow=true;
-    dir.shadow.mapSize.width=2048;
-    dir.shadow.mapSize.height=2048;
-    dir.shadow.camera.near=0.5;
-    dir.shadow.camera.far=20;
-    dir.shadow.camera.left=-4;dir.shadow.camera.right=4;
-    dir.shadow.camera.top=5;dir.shadow.camera.bottom=-2;
-    scene.add(dir);
-    var fill=new THREE.DirectionalLight(0xffe8cc,0.35);
-    fill.position.set(-4,2.5,-3);
-    scene.add(fill);
-
-    var ground=new THREE.Mesh(
-      new THREE.CircleGeometry(4.5,64),
-      new THREE.MeshStandardMaterial({color:0xe7eedd,roughness:1})
-    );
-    ground.rotation.x=-Math.PI/2;
-    ground.receiveShadow=true;
-    scene.add(ground);
-
-    var furMat=new THREE.MeshStandardMaterial({color:0xf6f1e8,roughness:0.85,metalness:0});
-    var bellyMat=new THREE.MeshStandardMaterial({color:0xfdfbf6,roughness:0.95});
-    var pinkMat=new THREE.MeshStandardMaterial({color:0xf29ab0,roughness:0.6});
-    var innerEarMat=new THREE.MeshStandardMaterial({color:0xf6b8c6,roughness:0.7});
-    var eyeMat=new THREE.MeshStandardMaterial({color:0x26222a,roughness:0.15});
-    var whiteBasic=new THREE.MeshBasicMaterial({color:0xffffff});
-    var whiskerMat=new THREE.MeshStandardMaterial({color:0xc9bfb2,roughness:1});
-    var mouthMat=new THREE.MeshStandardMaterial({color:0xd98a9a,roughness:0.6});
-    var bowMat=new THREE.MeshStandardMaterial({color:0xd97706,roughness:0.5});
-    var blushMat=new THREE.MeshStandardMaterial({color:0xf4a7b9,roughness:0.9,transparent:true,opacity:0.45});
-
-    var rabbit=new THREE.Group();
-    scene.add(rabbit);
-
-    var body=new THREE.Mesh(new THREE.SphereGeometry(0.9,48,48),furMat);
-    body.scale.set(0.95,1.15,0.85);
-    body.position.set(0,1.15,0);
-    body.castShadow=true;
-    rabbit.add(body);
-
-    var belly=new THREE.Mesh(new THREE.SphereGeometry(0.68,32,32),bellyMat);
-    belly.scale.set(0.85,1.05,0.42);
-    belly.position.set(0,1.0,0.56);
-    rabbit.add(belly);
-
-    var head=new THREE.Mesh(new THREE.SphereGeometry(0.72,48,48),furMat);
-    head.scale.set(1,0.95,0.95);
-    head.position.set(0,2.35,0.18);
-    head.castShadow=true;
-    rabbit.add(head);
-
-    function makeEar(side){
-      var g=new THREE.Group();
-      var outer=new THREE.Mesh(new THREE.SphereGeometry(0.21,32,32),furMat);
-      outer.scale.set(0.85,2.7,0.55);
-      outer.position.y=0.55;
-      outer.castShadow=true;
-      g.add(outer);
-      var inner=new THREE.Mesh(new THREE.SphereGeometry(0.13,24,24),innerEarMat);
-      inner.scale.set(0.8,2.35,0.4);
-      inner.position.set(0,0.55,0.09);
-      g.add(inner);
-      g.position.set(side*0.3,2.95,0.05);
-      g.rotation.z=side*0.18;
-      g.rotation.x=-0.12;
-      return g;
-    }
-    var earL=makeEar(-1);
-    var earR=makeEar(1);
-    var earLBase=earL.rotation.z, earRBase=earR.rotation.z;
-    rabbit.add(earL); rabbit.add(earR);
-
-    var eyeGeo=new THREE.SphereGeometry(0.085,24,24);
-    var hlGeo=new THREE.SphereGeometry(0.024,12,12);
-    [-1,1].forEach(function(s){
-      var e=new THREE.Mesh(eyeGeo,eyeMat);
-      e.position.set(s*0.28,2.42,0.72);
-      rabbit.add(e);
-      var h=new THREE.Mesh(hlGeo,whiteBasic);
-      h.position.set(s*0.28+0.028,2.45,0.785);
-      rabbit.add(h);
-    });
-
-    var nose=new THREE.Mesh(new THREE.SphereGeometry(0.055,20,20),pinkMat);
-    nose.position.set(0,2.22,0.78);
-    nose.scale.set(1.1,0.8,0.9);
-    rabbit.add(nose);
-
-    var curve=new THREE.QuadraticBezierCurve3(
-      new THREE.Vector3(-0.07,2.11,0.75),
-      new THREE.Vector3(0,2.05,0.78),
-      new THREE.Vector3(0.07,2.11,0.75)
-    );
-    var mouth=new THREE.Mesh(new THREE.TubeGeometry(curve,12,0.009,6,false),mouthMat);
-    rabbit.add(mouth);
-
-    [-1,1].forEach(function(s){
-      var b=new THREE.Mesh(new THREE.SphereGeometry(0.09,20,20),blushMat);
-      b.scale.set(1,0.8,0.4);
-      b.position.set(s*0.46,2.24,0.62);
-      rabbit.add(b);
-    });
-
-    var whGeo=new THREE.CylinderGeometry(0.005,0.005,0.55,6);
-    [-1,1].forEach(function(s){
-      for(var i=0;i<3;i++){
-        var w=new THREE.Mesh(whGeo,whiskerMat);
-        var ang=(i-1)*0.16;
-        w.rotation.z=(s>0?-Math.PI/2:Math.PI/2)+ang;
-        w.position.set(s*0.62,2.20+(i-1)*0.05,0.66-(i-1)*0.02);
-        rabbit.add(w);
-      }
-    });
-
-    [-1,1].forEach(function(s){
-      var p=new THREE.Mesh(new THREE.SphereGeometry(0.17,24,24),furMat);
-      p.scale.set(1,1.3,0.9);
-      p.position.set(s*0.36,0.72,0.62);
-      p.castShadow=true;
-      rabbit.add(p);
-    });
-
-    [-1,1].forEach(function(s){
-      var f=new THREE.Mesh(new THREE.SphereGeometry(0.3,24,24),furMat);
-      f.scale.set(1.15,0.5,1.5);
-      f.position.set(s*0.52,0.16,0.22);
-      f.castShadow=true;
-      rabbit.add(f);
-    });
-
-        // ekor panjang menonjol ke DEPAN (horizontal), sedikit melengkung ke atas di ujung
-    var tailGroup = new THREE.Group();
-    tailGroup.position.set(0, 0.5, 0.72); // pangkal di depan perut
-    var tailSegs = [
-      { r:0.30, y:0,    z:0     },
-      { r:0.26, y:0.04, z:0.35  },
-      { r:0.22, y:0.10, z:0.70  },
-      { r:0.30, y:0.20, z:1.00  },
-      { r:0.17, y:0.35, z:1.22  },
-      { r:0.30, y:0, x: 0.5, z:0  },
-      { r:0.30, y:0, x: -0.5, z:0  }
-    ];
-    tailSegs.forEach(function(s){
-      var m = new THREE.Mesh(new THREE.SphereGeometry(s.r, 24, 24), pinkMat);
-      m.position.set(s.x || 0, s.y, s.z);
-      
-      m.castShadow = true;
-      tailGroup.add(m);
-    });
-    rabbit.add(tailGroup);
-
-
-    [-1,1].forEach(function(s){
-      var loop=new THREE.Mesh(new THREE.SphereGeometry(0.12,20,20),bowMat);
-      loop.scale.set(1.3,0.85,0.4);
-      loop.position.set(s*0.14,1.78,0.72);
-      loop.rotation.z=s*0.35;
-      rabbit.add(loop);
-    });
-    var knot=new THREE.Mesh(new THREE.SphereGeometry(0.06,16,16),bowMat);
-    knot.position.set(0,1.78,0.74);
-    rabbit.add(knot);
-
-    var spin=0, autoSpin=false;
-    var btnL=document.getElementById('btnLeft');
-    var btnR=document.getElementById('btnRight');
-    var btnA=document.getElementById('btnAuto');
-    var btnReset=document.getElementById('btnReset');
-    var autoLabel=document.getElementById('autoLabel');
-    if(btnL) btnL.addEventListener('click',function(){spin+=0.07;});
-    if(btnR) btnR.addEventListener('click',function(){spin-=0.07;});
-    if(btnA) btnA.addEventListener('click',function(){
-      autoSpin=!autoSpin;
-      if(autoSpin){btnA.classList.add('active');autoLabel.textContent='Auto Putar: Aktif';}
-      else{btnA.classList.remove('active');autoLabel.textContent='Auto Putar';}
-    });
-    if(btnReset) btnReset.addEventListener('click',function(){
-      spin=0; autoSpin=false;
-      rabbit.rotation.y=0;
-      if(btnA){btnA.classList.remove('active');autoLabel.textContent='Auto Putar';}
-      camera.position.set(0,2.3,7.2);
-      controls.target.set(0,1.7,0);
-      controls.update();
-    });
-
-    var clock=new THREE.Clock();
-    var lastW=W, lastH=H;
-
-    function animate(){
-      requestAnimationFrame(animate);
-      var t=clock.getElapsedTime();
-      if(Math.abs(spin)>0.0004){
-        rabbit.rotation.y+=spin;
-        spin*=0.96;
-      } else { spin=0; }
-      if(autoSpin){ rabbit.rotation.y+=0.006; }
-      rabbit.position.y=Math.sin(t*1.6)*0.025;
-      earL.rotation.z=earLBase+Math.sin(t*2.2)*0.045;
-      earR.rotation.z=earRBase-Math.sin(t*2.2)*0.045;
-      earL.rotation.x=-0.12+Math.sin(t*1.8+1)*0.02;
-      earR.rotation.x=-0.12-Math.sin(t*1.8+1)*0.02;
-      controls.update();
-      var cw=container.clientWidth, ch=container.clientHeight;
-      if(cw&&ch&&(cw!==lastW||ch!==lastH)){
-        lastW=cw;lastH=ch;
-        renderer.setSize(cw,ch);
-        camera.aspect=cw/ch;
-        camera.updateProjectionMatrix();
-      }
-      
-      renderer.render(scene,camera);
-    }
-    animate();
-
-  }catch(e){ if(window&&window.console) console.error(e); }
-})(0);
 </script>
 </html>
