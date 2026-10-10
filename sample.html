@@ -1,9 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Bersuara</title>
 <html style="margin:0;padding:0;">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
 <script>
+function putarSuara() {
+  const audio = document.getElementById("suara");
+  audio.currentTime = 0;
+  audio.play();
+}
+
 (function(){
   var s=document.createElement('style');
   s.textContent=':root{--bg:#000;--card:#ffffff;--text:#0f172a;--muted:#64748b;--accent:#297a2e;--accent-soft:rgba(41,122,46,.14);--accent2:#d97706;--accent2-soft:rgba(217,119,6,.14);--border:rgba(15,23,42,.08)}'
@@ -34,19 +46,20 @@
   </div>
 
   <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:14px;">
-    <button id="btnLeft" class="ctrl-btn">
+  <audio id="suara" src="https://ia903109.us.archive.org/6/items/ambience_202606/xxxx.mp3" preload="auto"></audio>
+    <button id="btnLeft" class="ctrl-btn" onclick="putarSuara()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
       Putar Kiri
     </button>
-    <button id="btnAuto" class="ctrl-btn">
+    <button id="btnAuto" class="ctrl-btn" onclick="putarSuara()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
       <span id="autoLabel">Auto Putar</span>
     </button>
-    <button id="btnRight" class="ctrl-btn">
+    <button id="btnRight" class="ctrl-btn" onclick="putarSuara()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
       Putar Kanan
     </button>
-    <button id="btnReset" class="ctrl-btn">
+    <button id="btnReset" class="ctrl-btn" onclick="putarSuara()">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
       Reset
     </button>
