@@ -10,11 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/controls/OrbitControls.js"></script>
 <script>
-function putarSuara() {
-  const audio = document.getElementById("suara");
-  audio.currentTime = 0;
-  audio.play();
-}
+
 
 (function(){
   var s=document.createElement('style');
@@ -44,7 +40,13 @@ function putarSuara() {
       Tarik untuk memutar
     </div>
   </div>
-
+<script> 
+  function putarSuara() {
+  const audio = document.getElementById("suara");
+  audio.currentTime = 0;
+  audio.play();
+  }
+</script>
   <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:14px;">
   <audio id="suara" src="https://ia903109.us.archive.org/6/items/ambience_202606/xxxx.mp3" preload="auto"></audio>
     <button id="btnLeft" class="ctrl-btn" onclick="putarSuara()">
@@ -320,6 +322,7 @@ function putarSuara() {
         camera.aspect=cw/ch;
         camera.updateProjectionMatrix();
       }
+      
       renderer.render(scene,camera);
     }
     animate();
